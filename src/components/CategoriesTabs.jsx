@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "../styles/categoriesTabs.module.css"
 import { Tabs } from "antd";
 const { TabPane } = Tabs;
 
-const CategoriesTabs = () => {
+const CategoriesTabs = ({ category, setCategory }) => {
 
 	const tabs = [
 		{value: "general", label: "General"},
@@ -15,18 +15,11 @@ const CategoriesTabs = () => {
 		{value: "technology", label: "Tecnología"}
 	]
 
-    const [state, setState] = useState("general");
-
-    const handleTabChange = (e) => {
-		console.log(e);
-		setState(e);
-	}
-
 	return (
 		<Tabs
 			className={styles.tabs}
-			onChange={handleTabChange}
-			activeKey={state}
+			onChange={e => setCategory(e)}
+			activeKey={category}
         >
             {tabs.map((tab) => (
                 <TabPane tab={tab.label} key={tab.value}></TabPane>
