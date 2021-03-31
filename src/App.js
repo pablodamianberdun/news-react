@@ -3,6 +3,7 @@ import styles from "./styles/app.module.css"
 import CategoriesTabs from "./components/CategoriesTabs"
 import { getNewsApi } from "./services/newsApi"
 import { LoadingOutlined } from "@ant-design/icons"
+import NewsList from "./components/NewsList"
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
 				setCategory={setCategory}
 			/>
 			{loading ? <LoadingOutlined style={{fontSize: 30}} /> : null}
+			{news && !loading ? <NewsList allNews={news}/> : null }
         </div>
     );
 }
