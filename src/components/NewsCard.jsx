@@ -1,21 +1,37 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Card } from "antd";
 import styles from "../styles/newsCard.module.css";
-
-const { Meta } = Card;
+import NewsModal from "./NewsModal"
 
 const NewsCard = ({ news }) => {
-    const { title, urlToImage, description } = news;
+    const { title, urlToImage, description, url } = news;
+
+	const [isModalVisible, setIsModalVisible] = useState(false);
+
+	const showModal = () => {
+        setIsModalVisible(true);
+    };
 
     return (
         <Fragment>
-            {urlToImage || description ? (
-                <Card
+            {urlToImage && description ? (
+                <Fragment>
+					<Card
                     className={styles.card}
                     cover={<img alt="newsImage" src={urlToImage} />}
-                >
-                    <Meta title={title} description={description} />
-                </Card>
+					onClick={showModal}
+					>
+					<h3>{title}</h3>
+					</Card>
+
+					<NewsModal 
+						isModalVisible={isModalVisible}
+						setIsModalVisible={setIsModalVisible}
+						title={title}
+						description={description}
+						url={url}
+					/>
+				</Fragment>
             ) : null}
         </Fragment>
     );
