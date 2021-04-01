@@ -1,14 +1,15 @@
 import React from 'react'
 import { Card } from 'antd';
+import styles from "../styles/newsCard.module.css"
 
 const { Meta } = Card;
 
 const NewsCard = ({ news }) => {
-	const { title, urlToImage } = news
+	const { title, urlToImage, description } = news
 
 	return ( 
 		<Card
-			style={{ width: 300, margin: "0 auto 40px" }}
+			className={styles.card}
 			cover={
 			<img
 				alt="newsImage"
@@ -18,6 +19,7 @@ const NewsCard = ({ news }) => {
 		>
 			<Meta
 				title={title}
+				description={description}
 			/>
 		</Card>
 	);

@@ -1,7 +1,8 @@
 import axios from "axios"
+const API_KEY = process.env.REACT_APP_NEWS_API_KEY
 
 export const getNewsApi = async (category) => {
-	const url = `https://newsapi.org/v2/top-headlines?country=ar&category=${category}&apiKey=38401b69e0a24ff69cd5e963fe13b880`
+	const url = `https://newsapi.org/v2/top-headlines?country=ar&category=${category}&apiKey=${API_KEY}`
 
 	const response = await axios.get(url)
 

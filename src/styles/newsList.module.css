@@ -1,0 +1,22 @@
+.container-grid{
+	columns: 4;
+	column-gap: 40px;
+}
+
+@media(max-width: 1200px){
+	.container-grid{
+		columns: 3;
+	}
+}
+
+@media(max-width: 720px){
+	.container-grid{
+		columns: 2;
+	}
+}
+
+@media(max-width: 480px){
+	.container-grid{
+		columns: 1;
+	}
+}
