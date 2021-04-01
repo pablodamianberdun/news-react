@@ -1,6 +1,6 @@
 .container-grid{
 	columns: 4;
-	column-gap: 40px;
+	column-gap: 20px;
 }
 
 @media(max-width: 1200px){
